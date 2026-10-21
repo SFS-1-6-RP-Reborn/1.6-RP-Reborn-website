@@ -1,5 +1,5 @@
 const BULLETIN_URL =
-  "https://raw.githubusercontent.com/ssdcatlabs/SFS1.6RoleplayManagerConfigs/main/board.json";
+  "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6ManagerConfigs/main/board.json";
 
 async function loadAnnouncements() {
   try {
