@@ -37,7 +37,7 @@ async function loadAnnouncements() {
 loadAnnouncements();
 
 const LAUNCH_RECORDS_URL =
-  "https://raw.githubusercontent.com/RoshanGamer7791/SFS1.6RoleplayConfigs/main/LaunchRecords.json";
+  "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6RoleplayConfigs/main/LaunchRecords.json";
 
 async function loadLaunchRecords() {
   try {
@@ -79,7 +79,7 @@ async function loadLaunchRecords() {
 
 loadLaunchRecords();
 const RELATIONS_URL =
-  "https://raw.githubusercontent.com/RoshanGamer7791/SFS1.6RoleplayConfigs/main/Relations.json";
+  "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6RoleplayConfigs/main/Relations.json";
 
 async function loadRelations() {
   const res = await fetch(RELATIONS_URL);
@@ -129,7 +129,7 @@ loadRelations().catch(err => {
 });
 
 const AGENCIES_URL =
-  "https://raw.githubusercontent.com/RoshanGamer7791/SFS1.6RoleplayConfigs/main/SpaceAgencyConfigs.json";
+  "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6RoleplayConfigs/main/SpaceAgencyConfigs.json";
 
 async function loadAgencies() {
   const res = await fetch(AGENCIES_URL);
