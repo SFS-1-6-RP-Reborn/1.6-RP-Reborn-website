@@ -164,22 +164,17 @@ async function loadAgencies() {
     tag.textContent = a.status;
     tdStatus.appendChild(tag);
 
+    const tdComms = document.createElement("td");
+    tdComms.textContent = a.comms;
+
     tr.appendChild(tdName);
     tr.appendChild(tdOwner);
     tr.appendChild(tdType);
     tr.appendChild(tdMoney);
     tr.appendChild(tdStatus);
+    tr.appendChild(tdComms);
 
     tbody.appendChild(tr);
-  }
-
-  const comms = document.getElementById("comms");
-  comms.innerHTML = "";
-
-  for (const a of agencies) {
-    const p = document.createElement("p");
-    p.textContent = `${a.owner}: ${a.comms}`;
-    comms.appendChild(p);
   }
 }
 
