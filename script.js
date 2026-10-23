@@ -157,7 +157,6 @@ async function loadAgencies() {
 
     const tdMoney = document.createElement("td");
     tdMoney.textContent = '$' + a.money;
-    if (Number(a.money) >= 13) tdMoney.classList.add("firstrecord");
 
     const tdStatus = document.createElement("td");
     const tag = document.createElement("span");
