@@ -155,9 +155,9 @@ async function loadAgencies() {
     const tdType = document.createElement("td");
     tdType.textContent = a.type;
 
-    const tdPrestige = document.createElement("td");
-    tdPrestige.textContent = a.prestige;
-    if (Number(a.prestige) >= 13) tdPrestige.classList.add("firstrecord");
+    const tdMoney = document.createElement("td");
+    tdMoney.textContent = '$' + a.money;
+    if (Number(a.money) >= 13) tdMoney.classList.add("firstrecord");
 
     const tdStatus = document.createElement("td");
     const tag = document.createElement("span");
@@ -168,7 +168,7 @@ async function loadAgencies() {
     tr.appendChild(tdName);
     tr.appendChild(tdOwner);
     tr.appendChild(tdType);
-    tr.appendChild(tdPrestige);
+    tr.appendChild(tdMoney);
     tr.appendChild(tdStatus);
 
     tbody.appendChild(tr);
