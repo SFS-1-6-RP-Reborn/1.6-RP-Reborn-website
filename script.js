@@ -199,9 +199,17 @@ async function loadModlist() {
         modList.appendChild(heading);
         break;
       case "paragraph":
-        let paragraph = document.createElement("p");
-        paragraph.innerHTML = marked.parseInline(token.text);
-        modList.appendChild(paragraph);
+      case "text":
+        const lines = token.text.split("\n");
+
+        lines.forEach(lineText => {
+          const trimmed = lineText.trim();
+          if (trimmed === "") return;
+
+          const paragraph = document.createElement("p");
+          paragraph.textContent = trimmed;
+          modList.appendChild(paragraph);
+        })
         break;
     }
   });
