@@ -195,12 +195,12 @@ async function loadModlist() {
     switch (token.type) {
       case "heading":
         let heading = document.createElement(`h${token.depth}`);
-        heading.innerText = token.text;
+        heading.innerHTML = marked.parseInline(token.text);
         modList.appendChild(heading);
         break;
       case "paragraph":
         let paragraph = document.createElement("p");
-        paragraph.innerText = token.text;
+        paragraph.innerHTML = marked.parseInline(token.text);
         modList.appendChild(paragraph);
         break;
     }
