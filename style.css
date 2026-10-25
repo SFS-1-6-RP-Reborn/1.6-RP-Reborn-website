@@ -89,7 +89,7 @@
       border-radius: 8000px;
     }
 
-    #launch-records, .card {
+    #launch-records, #pricesCard, .card {
       padding: 20px 20px;
       border: 3px gray solid;
       background: rgba(0, 0, 0, 0.15);

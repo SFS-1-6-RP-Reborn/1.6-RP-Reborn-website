@@ -131,7 +131,7 @@ loadRelations().catch(err => {
 const AGENCIES_URL =
   "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6RoleplayConfigs/main/SpaceAgencyConfigs.json";
   
-  async function loadAgencies() {
+async function loadAgencies() {
   const res = await fetch(AGENCIES_URL);
   const text = await res.text();
   
@@ -179,3 +179,23 @@ const AGENCIES_URL =
 }
 
 loadAgencies().catch(console.error);
+
+const PRICES_URL = 
+  "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6RoleplayConfigs/main/SFS%201.6%20RP%20Money%20System.txt";
+
+async function getPrices() {
+  const res = await fetch(PRICES_URL);
+  const text = await res.text();
+
+  const prices = text.split("\n");
+  const pricesCard = document.getElementById("pricesCard");
+  pricesCard.innerHTML = "";
+
+  prices.forEach(price => {
+    const p = document.createElement("p");
+    p.innerText = price;
+    pricesCard.appendChild(p)
+  });
+}
+
+getPrices();
