@@ -130,52 +130,81 @@ loadRelations().catch(err => {
 
 const AGENCIES_URL =
   "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6RoleplayConfigs/main/SpaceAgencyConfigs.json";
-
-async function loadAgencies() {
+  
+  async function loadAgencies() {
   const res = await fetch(AGENCIES_URL);
   const text = await res.text();
-
+  
   if (!text.trim().startsWith("{")) throw new Error("Invalid agency JSON");
 
   const data = JSON.parse(text);
   const agencies = data.Space_Agencies;
-
+  
   const tbody = document.querySelector("table tbody");
   tbody.innerHTML = "";
-
+  
   for (const a of agencies) {
     const tr = document.createElement("tr");
-
+    
     const tdName = document.createElement("td");
     tdName.textContent = a.name;
-
+    
     const tdOwner = document.createElement("td");
     tdOwner.textContent = a.owner;
-
+    
     const tdType = document.createElement("td");
     tdType.textContent = a.type;
-
+    
     const tdMoney = document.createElement("td");
     tdMoney.textContent = '$' + a.money;
-
+    
     const tdStatus = document.createElement("td");
     const tag = document.createElement("span");
     tag.className = "tag";
     tag.textContent = a.status;
     tdStatus.appendChild(tag);
-
+    
     const tdComms = document.createElement("td");
     tdComms.textContent = a.comms;
-
+    
     tr.appendChild(tdName);
     tr.appendChild(tdOwner);
     tr.appendChild(tdType);
     tr.appendChild(tdMoney);
     tr.appendChild(tdStatus);
     tr.appendChild(tdComms);
-
+    
     tbody.appendChild(tr);
   }
 }
 
 loadAgencies().catch(console.error);
+
+const MODLIST_URL =
+  "https://raw.githubusercontent.com/SFS-1-6-RP-Reborn/SFS1.6RoleplayConfigs/main/Mods.md";
+
+async function loadModlist() {
+  const res = await fetch(MODLIST_URL);
+  const text = await res.text();
+  
+  const tokens = marked.lexer(text);
+
+  const modList = document.getElementById("modlist");
+
+  tokens.forEach((token) => {
+    switch (token.type) {
+      case "heading":
+        let heading = document.createElement(`h${token.depth}`);
+        heading.innerText = token.text;
+        modList.appendChild(heading);
+        break;
+      case "paragraph":
+        let paragraph = document.createElement("p");
+        paragraph.innerText = token.text;
+        modList.appendChild(paragraph);
+        break;
+    }
+  });
+}
+
+loadModlist();
